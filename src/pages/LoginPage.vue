@@ -16,7 +16,7 @@
       solo
     ></v-text-field>
 
-    <v-btn color="purple" class="mr-4"> Log in </v-btn>
+    <v-btn color="purple" class="mr-4" to="/"> Log in </v-btn>
   </v-form>
 </template>
 

@@ -11,7 +11,8 @@
     "core-js": "^3.8.3",
     "vue": "^2.6.14",
     "vue-router": "^3.6.4",
-    "vuetify": "^2.6.0"
+    "vuetify": "^2.6.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -22,7 +23,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
+    "eslint-plugin-vue": "^9.4.0",
     "prettier": "^2.4.1",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
@@ -44,11 +45,12 @@
       "parser": "@babel/eslint-parser"
     },
     "rules": {
+      "no-unused-vars": "off",
       "prettier/prettier": [
         "error",
         {
-          "semi": true,
           "singleQuote": true,
+          "semi": 1,
           "trailingComma": "es5"
         }
       ]

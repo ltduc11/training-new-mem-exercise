@@ -13,5 +13,8 @@ export default {
       return this.$route.meta.layout;
     },
   },
+  created() {
+    this.$store.dispatch('fetchEmployeeList');
+  },
 };
 </script>

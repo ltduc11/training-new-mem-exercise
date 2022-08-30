@@ -13,6 +13,18 @@ export const routes = [
     meta: { layout: MainLayout },
   },
   {
+    path: '/employee',
+    name: 'Employee',
+    component: () => import('../pages/Employee/EmployeePage.vue'),
+    meta: { layout: MainLayout },
+  },
+  {
+    path: '/employee/:id',
+    name: 'EmployeeDetail',
+    component: () => import('../pages/Employee/EmployeeDetail.vue'),
+    meta: { layout: MainLayout },
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../pages/LoginPage.vue'),
