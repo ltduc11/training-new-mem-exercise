@@ -6,6 +6,7 @@
         :headers="headers"
         :items="employeeList"
         :items-per-page="10"
+        :search="search"
       >
         <template v-slot:top>
           <v-toolbar flat>
@@ -59,6 +60,7 @@ export default {
         { text: 'Email', value: 'email' },
         { text: 'Age', value: 'age' },
         { text: 'Username', value: 'username' },
+        { text: 'Salary', value: 'salary' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       search: '',
@@ -68,7 +70,7 @@ export default {
   },
   computed: {
     employeeList() {
-      return this.$store.state.employees;
+      return this.$store.state.employee.employees;
     },
   },
   components: { ModalAddEmployee, ModalConfirmDeleteEmployee },

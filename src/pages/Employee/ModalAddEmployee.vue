@@ -16,7 +16,7 @@
               <v-text-field
                 v-model="newEmp.firstName"
                 label="First name*"
-                hint="Emoloyee First Name"
+                hint="Employee First Name"
                 type="text"
                 required
               ></v-text-field>
@@ -25,7 +25,7 @@
               <v-text-field
                 v-model="newEmp.lastName"
                 label="Last name*"
-                hint="Emoloyee Last Name"
+                hint="Employee Last Name"
                 type="text"
                 required
               ></v-text-field>
@@ -34,9 +34,8 @@
               <v-text-field
                 v-model="newEmp.username"
                 type="text"
-                label="Username*"
+                label="Username"
                 hint="Username Employee"
-                required
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="6" md="6">
@@ -48,11 +47,19 @@
               ></v-text-field>
             </v-col>
 
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="2">
               <v-text-field
                 v-model="newEmp.age"
                 type="number"
                 label="Age"
+                hint="Optional"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="4">
+              <v-text-field
+                v-model="newEmp.salary"
+                type="number"
+                label="Salary"
                 hint="Optional"
               ></v-text-field>
             </v-col>
@@ -83,6 +90,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import departmentData from '@/constants/departmentData';
 export default {
   data: () => ({
@@ -96,9 +104,13 @@ export default {
       email: null,
       age: null,
       department: null,
+      salary: 0,
     },
   }),
   methods: {
+    ...mapActions({
+      addEmpAction: 'addEmployee',
+    }),
     clearNewEmp() {
       this.newEmp = {
         id: null,
@@ -108,11 +120,12 @@ export default {
         email: null,
         age: null,
         department: null,
+        salary: 0,
       };
     },
     addNewEmployee(emp) {
-      if (emp.firstName && emp.lastName && emp.username && emp.department) {
-        this.$store.dispatch('addEmployee', {
+      if (emp.firstName && emp.lastName && emp.department) {
+        this.addEmpAction({
           ...emp,
           id: Math.random().toString(36).substring(2, 9),
         });

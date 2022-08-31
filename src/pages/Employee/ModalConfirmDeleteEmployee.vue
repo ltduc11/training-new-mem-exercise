@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   props: {
     employee: Object,
@@ -30,8 +31,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      deleteEmpAction: 'deleteEmployee',
+    }),
     confirmDelete() {
-      this.$store.dispatch('deleteEmployee', this.employee);
+      this.deleteEmpAction(this.employee);
       this.dialog = false;
     },
   },

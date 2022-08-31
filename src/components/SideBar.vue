@@ -9,6 +9,9 @@
       <v-list-item to="/employee">
         <v-list-item-title> Employee </v-list-item-title>
       </v-list-item>
+      <v-list-item to="/logout">
+        <v-list-item-title> Logout </v-list-item-title>
+      </v-list-item>
     </v-list-item-group>
   </v-list>
 </template>

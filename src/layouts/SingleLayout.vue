@@ -1,7 +1,11 @@
 <template>
-  <div class="center">
-    <slot></slot>
-  </div>
+  <v-app>
+    <v-main>
+      <v-container fluid fill-height>
+        <slot></slot>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -9,13 +13,3 @@ export default {
   name: 'SingleLayout',
 };
 </script>
-
-<style>
-.center {
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
