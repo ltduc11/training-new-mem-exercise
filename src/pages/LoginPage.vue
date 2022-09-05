@@ -55,7 +55,8 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+// import mapping from '@/store/mapping';
+
 export default {
   data() {
     return {
@@ -73,9 +74,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      loginAction: 'auth/login',
-    }),
+    // loginAction: mapping.auth.actions.login,
     handleSubmit() {
       this.loading = true;
       if (this.validateForm) {
@@ -85,7 +84,8 @@ export default {
     },
     login(username, password) {
       if (username === 'admin' && password === 'admin') {
-        this.loginAction(username);
+        // this.loginAction(username);
+        localStorage.setItem('userInfo', username);
         this.$router.push({ path: '/' });
       } else {
         alert('invalid username/password');

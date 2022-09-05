@@ -40,7 +40,6 @@
 
 <script>
 import mapping from '@/store/mapping';
-
 import ModalAddEmployee from './ModalAddEmployee.vue';
 import ModalConfirmDeleteEmployee from './ModalConfirmDeleteEmployee.vue';
 
@@ -73,9 +72,6 @@ export default {
   },
   computed: {
     getAllEmployee: mapping.employee.getters.getAll,
-  },
-  methods: {
-    fetchEmpAction: mapping.employee.actions.fetch,
   },
   components: { ModalAddEmployee, ModalConfirmDeleteEmployee },
   created() {

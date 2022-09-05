@@ -2,15 +2,14 @@
   <div>Logout</div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+// import mapping from '@/store/mapping';
 export default {
   methods: {
-    ...mapActions({
-      logoutAction: 'auth/logout',
-    }),
+    // logoutAction: mapping.auth.actions.logout,
   },
   mounted() {
-    this.logoutAction();
+    // this.logoutAction();
+    localStorage.removeItem('userInfo');
     this.$router.push('/login');
   },
 };

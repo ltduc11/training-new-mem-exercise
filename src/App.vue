@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import mapping from '@/store/mapping';
 export default {
   name: 'App',
   components: {},
@@ -12,6 +13,12 @@ export default {
     layout() {
       return this.$route.meta.layout;
     },
+  },
+  methods: {
+    fetchEmpAction: mapping.employee.actions.fetch,
+  },
+  created() {
+    this.fetchEmpAction();
   },
 };
 </script>
