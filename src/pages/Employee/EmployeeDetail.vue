@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      <span class="text-h5">Employee Profile: {{ newEmp.id }}</span>
+      <span class="text-h5">Employee Profile: ID({{ newEmp.id }})</span>
     </v-card-title>
     <v-card-text>
       <v-container>
@@ -101,22 +101,17 @@ export default {
     employee() {
       return this.getEmpById()(this.id);
     },
-    // stateStore() {
-    //   return this.$store.state.employee.employees;
-    // },
+    employeesStore: mapping.employee.getters.getAll,
   },
   watch: {
-    // //refresh page -> fetch api -> assign lai employee
-    // stateStore: function () {
-    //   this.assignEmployeeObject();
-    // },
+    //refresh page -> fetch api -> assign lai employee
+    employeesStore: function () {
+      this.assignEmployeeObject();
+    },
   },
   methods: {
     getEmpById: mapping.employee.getters.getById,
     updateEmpAction: mapping.employee.actions.update,
-    // ...mapActions({
-    //   updateEmpAction: 'employee/update',
-    // }),
     handleSave(emp) {
       this.updateEmpAction({
         ...emp,
@@ -128,8 +123,10 @@ export default {
       this.newEmp = Object.assign({}, this.employee);
     },
   },
-  mounted() {
-    this.assignEmployeeObject();
+  beforeMount() {
+    if (this.employee) {
+      this.assignEmployeeObject();
+    }
   },
 };
 </script>

@@ -74,8 +74,5 @@ export default {
     getAllEmployee: mapping.employee.getters.getAll,
   },
   components: { ModalAddEmployee, ModalConfirmDeleteEmployee },
-  created() {
-    this.fetchEmpAction();
-  },
 };
 </script>
