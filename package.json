@@ -31,31 +31,6 @@
     "vue-template-compiler": "^2.6.14",
     "vuetify-loader": "^1.7.0"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "plugin:prettier/recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {
-      "no-unused-vars": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-          "semi": true,
-          "trailingComma": "es5"
-        }
-      ]
-    }
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",

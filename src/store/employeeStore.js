@@ -1,8 +1,12 @@
 const employeeStore = {
+  namespaced: true,
   state: {
     employees: [],
   },
   getters: {
+    getAll: (state) => {
+      return state.employees;
+    },
     getEmployeeById: (state) => (id) => {
       return state.employees.find((emp) => emp.id.toString() === id);
     },
@@ -12,22 +16,22 @@ const employeeStore = {
     },
   },
   mutations: {
-    FETCH_EMPLOYEE_LIST(state, employeeList) {
+    FETCH_LIST(state, employeeList) {
       state.employees = employeeList;
     },
-    ADD_EMPLOYEE(state, employee) {
+    ADD(state, employee) {
       state.employees.push(employee);
     },
-    UPDATE_EMPLOYEE(state, employee) {
+    UPDATE(state, employee) {
       const index = state.employees.findIndex((emp) => emp.id == employee.id);
       state.employees.splice(index, 1, employee);
     },
-    DELETE_EMPLOYEE(state, employeeId) {
+    DELETE(state, employeeId) {
       state.employees = state.employees.filter((emp) => emp.id !== employeeId);
     },
   },
   actions: {
-    async fetchEmployeeList({ commit }) {
+    async fetchList({ commit }) {
       try {
         const res = await fetch('https://dummyjson.com/users');
         const json = await res.json();
@@ -44,19 +48,19 @@ const employeeStore = {
           };
         });
 
-        commit('FETCH_EMPLOYEE_LIST', users);
+        commit('FETCH_LIST', users);
       } catch (error) {
         console.log(error);
       }
     },
-    addEmployee({ commit }, newEmployee) {
-      commit('ADD_EMPLOYEE', newEmployee);
+    add({ commit }, employee) {
+      commit('ADD', employee);
     },
-    updateEmployee({ commit }, employee) {
-      commit('UPDATE_EMPLOYEE', employee);
+    update({ commit }, employee) {
+      commit('UPDATE', employee);
     },
-    deleteEmployee({ commit }, employee) {
-      commit('DELETE_EMPLOYEE', employee.id);
+    delete({ commit }, employee) {
+      commit('DELETE', employee.id);
     },
   },
 };

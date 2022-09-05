@@ -4,7 +4,7 @@
     <v-card outlined class="py-1">
       <v-data-table
         :headers="headers"
-        :items="employeeList"
+        :items="getAllEmployee"
         :items-per-page="10"
         :search="search"
       >
@@ -16,7 +16,8 @@
               label="Search"
               hide-details="auto"
               outlined
-            ></v-text-field>
+            >
+            </v-text-field>
             <v-spacer></v-spacer>
 
             <ModalAddEmployee />
@@ -38,6 +39,8 @@
 </template>
 
 <script>
+import mapping from '@/store/mapping';
+
 import ModalAddEmployee from './ModalAddEmployee.vue';
 import ModalConfirmDeleteEmployee from './ModalConfirmDeleteEmployee.vue';
 
@@ -69,10 +72,14 @@ export default {
     };
   },
   computed: {
-    employeeList() {
-      return this.$store.state.employee.employees;
-    },
+    getAllEmployee: mapping.employee.getters.getAll,
+  },
+  methods: {
+    fetchEmpAction: mapping.employee.actions.fetch,
   },
   components: { ModalAddEmployee, ModalConfirmDeleteEmployee },
+  created() {
+    this.fetchEmpAction();
+  },
 };
 </script>

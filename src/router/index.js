@@ -46,7 +46,7 @@ const router = new VueRouter({
 
 //navigation guards
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
+  if (to.meta.requiresAuth && !store.getters['auth/isAuthenticated']) {
     next('/login');
   } else {
     next();

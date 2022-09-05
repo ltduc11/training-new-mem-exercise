@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      loginAction: 'login',
+      loginAction: 'auth/login',
     }),
     handleSubmit() {
       this.loading = true;

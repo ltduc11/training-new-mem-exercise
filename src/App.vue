@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 export default {
   name: 'App',
   components: {},
@@ -13,14 +12,6 @@ export default {
     layout() {
       return this.$route.meta.layout;
     },
-  },
-  methods: {
-    ...mapActions({
-      fetchEmpAction: 'fetchEmployeeList',
-    }),
-  },
-  created() {
-    this.fetchEmpAction();
   },
 };
 </script>

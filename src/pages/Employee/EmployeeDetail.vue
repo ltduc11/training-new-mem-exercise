@@ -43,7 +43,8 @@
               label="Email"
               hint="Optional"
               spellcheck="false"
-            ></v-text-field>
+            >
+            </v-text-field>
           </v-col>
 
           <v-col cols="12" sm="2">
@@ -86,18 +87,19 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import mapping from '@/store/mapping';
 import departmentData from '@/constants/departmentData';
 export default {
   data() {
     return {
       departmentList: departmentData,
       newEmp: {},
+      id: this.$route.params.id,
     };
   },
   computed: {
     employee() {
-      return this.$store.getters.getEmployeeById(this.$route.params.id);
+      return this.getEmpById()(this.id);
     },
     // stateStore() {
     //   return this.$store.state.employee.employees;
@@ -110,9 +112,11 @@ export default {
     // },
   },
   methods: {
-    ...mapActions({
-      updateEmpAction: 'updateEmployee',
-    }),
+    getEmpById: mapping.employee.getters.getById,
+    updateEmpAction: mapping.employee.actions.update,
+    // ...mapActions({
+    //   updateEmpAction: 'employee/update',
+    // }),
     handleSave(emp) {
       this.updateEmpAction({
         ...emp,

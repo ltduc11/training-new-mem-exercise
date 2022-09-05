@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import mapping from '@/store/mapping';
 export default {
   props: {
     employee: Object,
@@ -31,9 +31,8 @@ export default {
     };
   },
   methods: {
-    ...mapActions({
-      deleteEmpAction: 'deleteEmployee',
-    }),
+    deleteEmpAction: mapping.employee.actions.delete,
+
     confirmDelete() {
       this.deleteEmpAction(this.employee);
       this.dialog = false;

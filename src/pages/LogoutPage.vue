@@ -6,11 +6,11 @@ import { mapActions } from 'vuex';
 export default {
   methods: {
     ...mapActions({
-      logoutAction: 'logout',
+      logoutAction: 'auth/logout',
     }),
   },
   mounted() {
-    this.logoutAction('logout');
+    this.logoutAction();
     this.$router.push('/login');
   },
 };

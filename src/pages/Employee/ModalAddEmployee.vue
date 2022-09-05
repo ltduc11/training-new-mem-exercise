@@ -28,7 +28,8 @@
                 hint="Employee Last Name"
                 type="text"
                 required
-              ></v-text-field>
+              >
+              </v-text-field>
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <v-text-field
@@ -36,7 +37,8 @@
                 type="text"
                 label="Username"
                 hint="Username Employee"
-              ></v-text-field>
+              >
+              </v-text-field>
             </v-col>
             <v-col cols="12" sm="6" md="6">
               <v-text-field
@@ -90,8 +92,8 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import departmentData from '@/constants/departmentData';
+import mapping from '@/store/mapping';
 export default {
   data: () => ({
     showDialog: false,
@@ -108,9 +110,7 @@ export default {
     },
   }),
   methods: {
-    ...mapActions({
-      addEmpAction: 'addEmployee',
-    }),
+    addEmpAction: mapping.employee.actions.add,
     clearNewEmp() {
       this.newEmp = {
         id: null,
