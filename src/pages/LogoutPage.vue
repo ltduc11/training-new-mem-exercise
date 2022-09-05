@@ -5,7 +5,7 @@
 // import mapping from '@/store/mapping';
 export default {
   methods: {
-    // logoutAction: mapping.auth.actions.logout,
+    logoutAction: mapping.auth.actions.logout,
   },
   mounted() {
     // this.logoutAction();

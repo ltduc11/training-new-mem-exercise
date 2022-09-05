@@ -85,7 +85,11 @@ export default {
     login(username, password) {
       if (username === 'admin' && password === 'admin') {
         // this.loginAction(username);
+<<<<<<< HEAD
         localStorage.setItem('userInfo', username);
+=======
+        localStorage.setItem('userInfo', JSON.stringify(username));
+>>>>>>> fd080de (udpate authen with localstorage)
         this.$router.push({ path: '/' });
       } else {
         alert('invalid username/password');
