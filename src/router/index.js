@@ -9,7 +9,7 @@ export const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../pages/HomePage.vue'),
+    component: () => import('../pages/Homepage/HomePage.vue'),
     meta: { layout: MainLayout, requiresAuth: true },
   },
   {
