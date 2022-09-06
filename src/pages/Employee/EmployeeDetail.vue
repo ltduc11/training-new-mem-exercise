@@ -15,8 +15,6 @@
               required
               spellcheck="false"
             ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="6">
             <v-text-field
               v-model="newEmp.lastName"
               label="Last name*"
@@ -26,6 +24,22 @@
               spellcheck="false"
             ></v-text-field>
           </v-col>
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+            class="d-flex align-center justify-end"
+          >
+            <v-img
+              :src="newEmp.image"
+              alt="avatar"
+              contain
+              style="height: 100px"
+              aspect-ratio="1"
+            ></v-img>
+          </v-col>
+        </v-row>
+        <v-row>
           <v-col cols="12" sm="6" md="6">
             <v-text-field
               v-model="newEmp.username"
@@ -46,7 +60,8 @@
             >
             </v-text-field>
           </v-col>
-
+        </v-row>
+        <v-row>
           <v-col cols="12" sm="2">
             <v-text-field
               v-model="newEmp.age"
@@ -87,8 +102,8 @@
 </template>
 
 <script>
-import mapping from '@/store/mapping';
-import departmentData from '@/constants/departmentData';
+import mapping from "@/store/mapping";
+import departmentData from "@/constants/departmentData";
 export default {
   data() {
     return {
@@ -117,7 +132,7 @@ export default {
         ...emp,
         id: this.employee.id,
       });
-      this.$router.push('/employee');
+      this.$router.push("/employee");
     },
     assignEmployeeObject() {
       this.newEmp = Object.assign({}, this.employee);

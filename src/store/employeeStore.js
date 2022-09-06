@@ -70,6 +70,7 @@ const employeeStore = {
             department: user.company.department,
             email: user.email,
             salary: parseInt(user.address.postalCode, 10),
+            image: user.image,
           };
         });
 

@@ -8,11 +8,11 @@
       :sort-desc="sortDesc"
       hide-default-footer
     >
-      <!-- <template v-slot:item[highlighKey]="{ item }">
-        <v-chip dark>
+      <template v-slot:[`item.${highlighKey}`]="{ item }">
+        <v-chip color="green" text-color="white">
           {{ item[highlighKey] }}
         </v-chip>
-      </template> -->
+      </template>
     </v-data-table>
   </div>
 </template>
