@@ -3,7 +3,11 @@
   "env": {
     "node": true
   },
-  "extends": ["plugin:vue/essential", "eslint:recommended", "prettier"],
+  "extends": [
+    "plugin:vue/essential",
+    "eslint:recommended",
+    "prettier"
+  ],
   "plugins": ["prettier"],
   "parserOptions": {
     "parser": "@babel/eslint-parser"

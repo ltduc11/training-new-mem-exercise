@@ -34,7 +34,7 @@
               :src="newEmp.image"
               alt="avatar"
               contain
-              style="height: 100px"
+              height="100px"
               aspect-ratio="1"
             ></v-img>
           </v-col>
@@ -93,17 +93,15 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="blue darken-1" text @click="$router.go(-1)"> Close </v-btn>
-      <v-btn color="blue darken-1" text @click="handleSave(newEmp)">
-        Save
-      </v-btn>
+      <v-btn color="gray" text @click="$router.go(-1)"> Close </v-btn>
+      <v-btn color="primary darken-1" @click="handleSave(newEmp)"> Save </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import mapping from "@/store/mapping";
-import departmentData from "@/constants/departmentData";
+import mapping from '@/store/mapping';
+import departmentData from '@/constants/departmentData';
 export default {
   data() {
     return {
@@ -132,7 +130,7 @@ export default {
         ...emp,
         id: this.employee.id,
       });
-      this.$router.push("/employee");
+      this.$router.push('/employee');
     },
     assignEmployeeObject() {
       this.newEmp = Object.assign({}, this.employee);

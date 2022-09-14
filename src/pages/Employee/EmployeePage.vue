@@ -83,36 +83,36 @@
 </template>
 
 <script>
-import mapping from "@/store/mapping";
-import ModalAddEmployee from "./ModalAddEmployee.vue";
-import ModalConfirmDeleteEmployee from "./ModalConfirmDeleteEmployee.vue";
-import CardEmployee from "./CardEmployee.vue";
+import mapping from '@/store/mapping';
+import ModalAddEmployee from './ModalAddEmployee.vue';
+import ModalConfirmDeleteEmployee from './ModalConfirmDeleteEmployee.vue';
+import CardEmployee from './CardEmployee.vue';
 
 export default {
   data() {
     return {
       headers: [
-        { text: "ID", value: "id" },
+        { text: 'ID', value: 'id' },
         {
-          text: "First name",
-          align: "start",
-          value: "firstName",
+          text: 'First name',
+          align: 'start',
+          value: 'firstName',
         },
         {
-          text: "Last name",
-          align: "start",
-          value: "lastName",
+          text: 'Last name',
+          align: 'start',
+          value: 'lastName',
         },
-        { text: "Department", value: "department" },
-        { text: "Email", value: "email" },
-        { text: "Age", value: "age" },
-        { text: "Username", value: "username" },
-        { text: "Salary", value: "salary" },
-        { text: "Actions", value: "actions", sortable: false },
+        { text: 'Department', value: 'department' },
+        { text: 'Email', value: 'email' },
+        { text: 'Age', value: 'age' },
+        { text: 'Username', value: 'username' },
+        { text: 'Salary', value: 'salary' },
+        { text: 'Actions', value: 'actions', sortable: false },
       ],
-      tabs: ["list", "cards"],
-      search: "",
-      currentTab: "",
+      tabs: ['list', 'cards'],
+      search: '',
+      currentTab: 1,
     };
   },
   computed: {
@@ -122,6 +122,10 @@ export default {
     ModalAddEmployee,
     ModalConfirmDeleteEmployee,
     CardEmployee,
+  },
+  updated() {
+    console.log('tab', this.currentTab);
+    console.log('route', this.$route);
   },
 };
 </script>

@@ -17,6 +17,9 @@ export const routes = [
     name: 'Employee',
     component: () => import('../pages/Employee/EmployeePage.vue'),
     meta: { layout: MainLayout, requiresAuth: true },
+    props: {
+      viewTab: 'list',
+    },
   },
   {
     path: '/employee/:id',

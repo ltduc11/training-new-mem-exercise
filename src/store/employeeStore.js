@@ -1,6 +1,6 @@
-import { sortArrayByKey } from "@/helpers/sort";
-import departmentData from "@/constants/departmentData";
-import _ from "lodash";
+import { sortArrayByKey } from '@/helpers/sort';
+import departmentData from '@/constants/departmentData';
+import _ from 'lodash';
 const employeeStore = {
   namespaced: true,
   state: {
@@ -17,8 +17,8 @@ const employeeStore = {
     getEmployeesByHighestSalary: (state) => (amount) => {
       const list = sortArrayByKey(
         state.employees,
-        "salary",
-        "descending"
+        'salary',
+        'descending'
       ).slice(0, amount);
       // console.log("list", list);
       return list;
@@ -33,7 +33,7 @@ const employeeStore = {
           ? departmentList[depIndex].salary + parseInt(emp.salary)
           : parseInt(emp.salary);
       });
-      const maxDepBySalary = _.maxBy(departmentList, "salary");
+      const maxDepBySalary = _.maxBy(departmentList, 'salary');
       const list = state.employees.filter(
         (emp) => emp.department === maxDepBySalary.name
       );
@@ -58,7 +58,7 @@ const employeeStore = {
   actions: {
     async fetchList({ commit }) {
       try {
-        const res = await fetch("https://dummyjson.com/users");
+        const res = await fetch('https://dummyjson.com/users');
         const json = await res.json();
         const users = json.users.map((user) => {
           return {
@@ -74,19 +74,19 @@ const employeeStore = {
           };
         });
 
-        commit("FETCH_LIST", users);
+        commit('FETCH_LIST', users);
       } catch (error) {
         console.log(error);
       }
     },
     add({ commit }, employee) {
-      commit("ADD", employee);
+      commit('ADD', employee);
     },
     update({ commit }, employee) {
-      commit("UPDATE", employee);
+      commit('UPDATE', employee);
     },
     delete({ commit }, employee) {
-      commit("DELETE", employee.id);
+      commit('DELETE', employee.id);
     },
   },
 };
