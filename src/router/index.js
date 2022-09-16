@@ -39,6 +39,12 @@ export const routes = [
     component: () => import('../pages/LogoutPage.vue'),
     meta: { layout: SingleLayout, requiresAuth: true },
   },
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import('../pages/Test/TestPage.vue'),
+    meta: { layout: MainLayout, requiresAuth: true },
+  },
 ];
 
 const router = new VueRouter({
